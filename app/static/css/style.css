@@ -1,0 +1,11 @@
+.main {
+    margin-top: 10px;
+}
+
+.smooth-transition {
+    transition: all .5s;
+}
+
+.smooth-transition:hover {
+    transition: all .3s;
+}
