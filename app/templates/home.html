@@ -4,11 +4,22 @@
 
 {% block content %}
 <main class="main">
-    <div class="main-input">
+    <div class="position-relative overflow-hidden mt-3 mb-3 p-2 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 fw-normal">Shortend.</h1>
+            <p class="lead fw-normal">A fast and free way to shorten your links</p>
+        </div>
+            <div class="product-device shadow-sm d-none d-md-block"></div>
+            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+      </div>
+    <div class="main-input mb-3">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Your link" id="linkInput">
           <button class="btn btn-outline-dark smooth-transition" type="submit" id="ShortenButton">Shorten!</button>
         </div>
+    </div>
+    <div class="card">
+        <div class="card-body" id="shortLink"></div>
     </div>
 </main>
 {% endblock content %}

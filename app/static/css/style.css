@@ -1,5 +1,9 @@
+input:focus, input.form-control:focus {
+    box-shadow: none;
+    outline-color: black;
+}
+
 .main {
-    margin-top: 10px;
 }
 
 .smooth-transition {

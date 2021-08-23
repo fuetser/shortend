@@ -1,4 +1,3 @@
-from secrets import token_urlsafe
 from flask import render_template, jsonify, redirect, abort
 from app import app
 from .services import LinkService
@@ -12,12 +11,14 @@ def root():
 @app.get("/<string:link>")
 def short_link(link: str):
     if (associated_link := LinkService.get(link)) is not None:
-        return redirect(f"https://{associated_link}", code=302)
+        redirect_link = associated_link.original_link
+        if not redirect_link.startswith("http"):
+            redirect_link = f"http://{redirect_link}"
+        return redirect(redirect_link, code=302)
     abort(404)
 
 
 @app.post("/add/<string:link>")
 def add_link(link: str):
-    shortened_link = token_urlsafe(6)
-    LinkService.create(link, shortened_link)
+    shortened_link = LinkService.create(link)
     return jsonify({"link": shortened_link})

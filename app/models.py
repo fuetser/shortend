@@ -17,5 +17,9 @@ class Link(db.Model):
             db.exists().where(Link.short_link == link)).scalar()
 
     @staticmethod
-    def get(short_link: str) -> str:
+    def get_by_short_link(short_link: str):
         return Link.query.filter(Link.short_link == short_link).first()
+
+    @staticmethod
+    def get_by_original_link(original_link: str):
+        return Link.query.filter(Link.original_link == original_link).first()
