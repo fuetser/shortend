@@ -9,7 +9,7 @@ const regex = new RegExp(expression)
 document.querySelector("#ShortenButton").addEventListener("click", e => {
     if((link = linkInput.value.trim()) !== "" && link.match(regex)) {
       $.ajax({
-        url: `/add/${link}`,
+        url: `/add/${link.replace("/", ":")}`,
         type: "POST",
         success: responce => {
           shortLinkField.innerHTML = `${window.location.protocol}//${window.location.host}/${responce.link}`

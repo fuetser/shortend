@@ -20,5 +20,5 @@ def short_link(link: str):
 
 @app.post("/add/<string:link>")
 def add_link(link: str):
-    shortened_link = LinkService.create(link)
+    shortened_link = LinkService.create(link.replace(":", "/"))
     return jsonify({"link": shortened_link})
