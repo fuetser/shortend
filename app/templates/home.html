@@ -5,21 +5,38 @@
 {% block content %}
 <main class="main">
     <div class="position-relative overflow-hidden mt-3 mb-3 p-2 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <div class="col-md-6 p-lg-5 mx-auto my-5">
             <h1 class="display-4 fw-normal">Shortend.</h1>
-            <p class="lead fw-normal">A fast and free way to shorten your links</p>
+            {% if lang == "ru" %}
+                <p class="lead fw-normal">Быстрый и простой способ укоротить Ваши ссылки</p>
+            {% else %}
+                <p class="lead fw-normal">A fast and free way to shorten your links</p>
+            {% endif %}
         </div>
             <div class="product-device shadow-sm d-none d-md-block"></div>
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-      </div>
+    </div>
     <div class="main-input mb-3">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Your link" id="linkInput">
-          <button class="btn btn-outline-dark smooth-transition" type="submit" id="ShortenButton">Shorten!</button>
+            {% if lang == "ru" %}
+                <input type="text" class="form-control" placeholder="Ваша ссылка" id="linkInput">
+                <button class="btn btn-outline-dark smooth-transition" type="submit" id="ShortenButton">Укоротить!</button>
+            {% else %}
+                <input type="text" class="form-control" placeholder="Your link" id="linkInput">
+                <button class="btn btn-outline-dark smooth-transition" type="submit" id="ShortenButton">Shorten!</button>
+            {% endif %}
         </div>
     </div>
-    <div class="card">
-        <div class="card-body" id="shortLink"></div>
+    <div class="main-input mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" id="shortLink" readonly>
+            <button class="btn btn-outline-dark smooth-transition" type="button" id="copyButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+</svg>
+            </button>
+        </div>
     </div>
 </main>
 {% endblock content %}

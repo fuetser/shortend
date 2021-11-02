@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="main">
+    <div class="card error-main p-4 mt-4">
+        <h3 class="display-6">Page not found</h3>
+        <p class="mt-2 mb-0 lead">You may have entered an incorrect link</p>
+        <a href="{{ url_for('root') }}" class="nav-link lead mb-0 pb-0 smooth-transition">Home</a>
+    </div>
+</main>
+{% endblock %}

@@ -1,11 +1,12 @@
-from flask import render_template, jsonify, redirect, abort
+from flask import render_template, jsonify, redirect, abort, request
 from app import app
 from .services import LinkService
 
 
 @app.get("/")
 def root():
-    return render_template("home.html")
+    lang = request.args.get("lang", "en")
+    return render_template("home.html", lang=lang)
 
 
 @app.get("/<string:link>")
@@ -20,5 +21,5 @@ def short_link(link: str):
 
 @app.post("/add/<string:link>")
 def add_link(link: str):
-    shortened_link = LinkService.create(link.replace(":", "/"))
+    shortened_link = LinkService.create(link.replace(":", "/").lower())
     return jsonify({"link": shortened_link})

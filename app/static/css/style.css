@@ -3,13 +3,24 @@ input:focus, input.form-control:focus {
     outline-color: black;
 }
 
-.main {
-}
-
 .smooth-transition {
     transition: all .5s;
 }
 
 .smooth-transition:hover {
     transition: all .3s;
+}
+
+.error-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: #888;
+}
+
+.nav-link:hover {
+    color: #000;
 }

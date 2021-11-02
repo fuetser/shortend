@@ -15,11 +15,11 @@ class LinkService():
         return Link.get_by_original_link(original_link).short_link
 
     @staticmethod
-    def get(short_link: str) -> str:
+    def get(short_link: str) -> Link:
         return Link.get_by_short_link(short_link)
 
     @staticmethod
-    def generate_short_link():
+    def generate_short_link() -> str:
         while True:
             if (link := token_urlsafe(4)) and Link.is_unique_short_link(link):
                 return link
