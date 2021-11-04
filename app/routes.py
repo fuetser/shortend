@@ -19,7 +19,9 @@ def short_link(link: str):
     abort(404)
 
 
-@app.post("/add/<string:link>")
-def add_link(link: str):
-    shortened_link = LinkService.create(link.replace(":", "/").lower())
-    return jsonify({"link": shortened_link})
+@app.post("/add")
+def add_link():
+    if (link := request.values.get("link")):
+        shortened_link = LinkService.create(link)
+        return jsonify({"link": shortened_link})
+    return jsonify({"link": "Error"})

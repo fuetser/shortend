@@ -1,6 +1,11 @@
 input:focus, input.form-control:focus {
     box-shadow: none;
     outline-color: black;
+    border-color: #aaa;
+}
+
+.btn-outline-dark {
+    border-color: #aaa;
 }
 
 .smooth-transition {
