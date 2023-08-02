@@ -1,3 +1,4 @@
-flask
-flask-sqlalchemy
-gunicorn
+catboost
+pandas
+scikit-learn
+seaborn
